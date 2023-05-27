@@ -1,0 +1,19 @@
+{
+  "name": "bookshlf-tools",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "start": "next build && serve out",
+    "build": "next build"
+  },
+  "dependencies": {
+    "nanoid": "^4.0.2",
+    "next": "13.4.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}

@@ -1,0 +1,15 @@
+.dropdownContainer {
+  flex: 1;
+}
+.select {
+  border-width: 2px;
+  border-color: #6e6e6e40;
+  border-radius: 5px;
+  color: #cecece;
+  background-color: #222222;
+  padding: 10px 20px;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+}

@@ -1,0 +1,12 @@
+.textInput {
+  border: 2px solid #6e6e6e40;
+  border-radius: 5px;
+  color: #cecece;
+  background-color: #222222;
+  padding: 10px 20px;
+  font-size: 18px;
+  outline: none;
+  text-align: center;
+  min-width: 100px;
+  flex: 1;
+}

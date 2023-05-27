@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "start": "next build && serve out",
-    "build": "next build"
+    "build": "next build && touch ./out/.nojekyll && echo 'tools.bookshlf.in' > ./out/CNAME",
+    "deploy": "gh-pages -d out -t true"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "nanoid": "^4.0.2",
     "next": "13.4.2",
     "react": "18.2.0",

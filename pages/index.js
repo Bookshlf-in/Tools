@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import HomeCard from '@/components/HomeCard';
+import SocialMedia from '@/components/SocialMediaCard';
 
 const cardData = [
   {
@@ -50,6 +51,7 @@ export default function Home() {
             content={e.content}
           />
         ))}
+        <SocialMedia />
       </main>
     </>
   );

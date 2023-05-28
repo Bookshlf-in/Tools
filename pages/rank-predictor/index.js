@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Head from 'next/head';
 import styles from '@/styles/rank-predictor.module.css';
 import TextInput from '@/components/TextInput';
 import Dropdown from '@/components/Dropdown';
@@ -74,35 +75,55 @@ const RankPredictor = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.heading}>
-        Predict your rank based on your JEE Mains percentile.
-      </h1>
-      <div className={styles.formContainer}>
-        <TextInput
-          name="percentile"
-          placeholder="Percentile"
-          type="number"
-          onChange={onChange}
+    <>
+      <Head>
+        <title>JEE Rank Predictor | Bookshlf Tools</title>
+        <meta
+          name="description"
+          content="Predict your JEE Mains rank based on Percentile obtained | Bookshlf Tools"
         />
-        <Dropdown name="category" values={category} onChange={onChange} />
-        <Button onClick={handleSubmit}>Submit</Button>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.container}>
+        <h1 className={styles.heading}>
+          Predict your rank based on your JEE Mains percentile.
+        </h1>
+        <div className={styles.formContainer}>
+          <TextInput
+            name="percentile"
+            placeholder="Percentile"
+            type="number"
+            onChange={onChange}
+          />
+          <Dropdown name="category" values={category} onChange={onChange} />
+          <Button onClick={handleSubmit}>Submit</Button>
+        </div>
+        <div className={styles.divider} />
+        {!error && result1.length == 0 ? (
+          <p className={styles.infoText}>
+            Please enter your percentile and press submit to view results.
+          </p>
+        ) : null}
+        {error && <p className={styles.errorText}>{error}</p>}
+        {result1.length > 0 ? (
+          <p className={styles.resultText}>
+            Your CRL is :{' '}
+            <span
+              className={styles.bold}
+            >{`${result1[0]} - ${result1[1]}`}</span>
+          </p>
+        ) : null}
+        {result2.length > 0 ? (
+          <p className={styles.resultText}>
+            Your category rank is :{' '}
+            <span
+              className={styles.bold}
+            >{`${result2[0]} - ${result2[1]}`}</span>
+          </p>
+        ) : null}
       </div>
-      <div className={styles.divider} />
-      {error && <p className={styles.errorText}>{error}</p>}
-      {result1.length > 0 ? (
-        <p className={styles.resultText}>
-          Your CRL is :{' '}
-          <span className={styles.bold}>{`${result1[0]} - ${result1[1]}`}</span>
-        </p>
-      ) : null}
-      {result2.length > 0 ? (
-        <p className={styles.resultText}>
-          Your category rank is :{' '}
-          <span className={styles.bold}>{`${result2[0]} - ${result2[1]}`}</span>
-        </p>
-      ) : null}
-    </div>
+    </>
   );
 };
 

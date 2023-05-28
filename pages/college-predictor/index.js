@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import getConfig from 'next/config';
+import Head from 'next/head';
 const { publicRuntimeConfig } = getConfig();
 import styles from '@/styles/college-predictor.module.css';
 import Dropdown from '@/components/Dropdown';
@@ -132,55 +133,66 @@ const CollegePredictor = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.heading}>
-        Predict your college based on your JEE Mains rank.
-      </h1>
-      <div className={styles.formContainer}>
-        <div className={styles.formContainerTop}>
-          <Dropdown name="year" values={year} onChange={onChange} />
-          <TextInput
-            name="percentile"
-            placeholder="Enter your percentile"
-            type="number"
-            onChange={onChange}
-            onPressEnter={handleSubmit}
-          />
-          <TextInput
-            name="rank"
-            placeholder="Enter your rank*"
-            type="number"
-            onChange={onChange}
-            onPressEnter={handleSubmit}
-          />
-          <Button onClick={handleSubmit}>Submit</Button>
-        </div>
-        <div className={styles.formContainerBottom}>
-          <div className={styles.formItem}>
-            <div className={styles.formItemName}>Academic Program</div>
-            <Dropdown
-              name="academicProgram"
-              values={academicProgram}
+    <>
+      <Head>
+        <title>JEE College Predictor | Bookshlf Tools</title>
+        <meta
+          name="description"
+          content="Predict your college based on JEE Mains rank obtained | Bookshlf Tools"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.container}>
+        <h1 className={styles.heading}>
+          Predict your college based on your JEE Mains rank.
+        </h1>
+        <div className={styles.formContainer}>
+          <div className={styles.formContainerTop}>
+            <Dropdown name="year" values={year} onChange={onChange} />
+            <TextInput
+              name="percentile"
+              placeholder="Enter your percentile"
+              type="number"
               onChange={onChange}
+              onPressEnter={handleSubmit}
             />
+            <TextInput
+              name="rank"
+              placeholder="Enter your rank*"
+              type="number"
+              onChange={onChange}
+              onPressEnter={handleSubmit}
+            />
+            <Button onClick={handleSubmit}>Submit</Button>
           </div>
-          <div className={styles.formItem}>
-            <div className={styles.formItemName}>Quota *</div>
-            <Dropdown name="quota" values={quota} onChange={onChange} />
-          </div>
-          <div className={styles.formItem}>
-            <div className={styles.formItemName}>Seat Type *</div>
-            <Dropdown name="seatType" values={seatType} onChange={onChange} />
-          </div>
-          <div className={styles.formItem}>
-            <div className={styles.formItemName}>Gender</div>
-            <Dropdown name="gender" values={gender} onChange={onChange} />
+          <div className={styles.formContainerBottom}>
+            <div className={styles.formItem}>
+              <div className={styles.formItemName}>Academic Program</div>
+              <Dropdown
+                name="academicProgram"
+                values={academicProgram}
+                onChange={onChange}
+              />
+            </div>
+            <div className={styles.formItem}>
+              <div className={styles.formItemName}>Quota *</div>
+              <Dropdown name="quota" values={quota} onChange={onChange} />
+            </div>
+            <div className={styles.formItem}>
+              <div className={styles.formItemName}>Seat Type *</div>
+              <Dropdown name="seatType" values={seatType} onChange={onChange} />
+            </div>
+            <div className={styles.formItem}>
+              <div className={styles.formItemName}>Gender</div>
+              <Dropdown name="gender" values={gender} onChange={onChange} />
+            </div>
           </div>
         </div>
+        <div className={styles.divider} />
+        {renderResultView()}
       </div>
-      <div className={styles.divider} />
-      {renderResultView()}
-    </div>
+    </>
   );
 };
 

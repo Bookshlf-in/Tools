@@ -8,8 +8,8 @@ const SocialMedia = ({ name, imgSrc, link }) => {
       <div className={styles.container}>
         <Image
           src={imgSrc}
-          width={60}
-          height={60}
+          width={30}
+          height={30}
           alt={name}
           className={styles.image}
         />

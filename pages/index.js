@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import HomeCard from '@/components/HomeCard';
 import SocialMedia from '@/components/SocialMediaCard';
+import Footer from '@/components/Footer';
 
 const cardData = [
   {
@@ -16,9 +17,9 @@ const cardData = [
     key: 2,
     link: '/rank-predictor',
     imageSrc: '/images/leaderboard.png',
-    heading: 'JEE Rank Predictor',
+    heading: 'JEE Mains Rank Predictor',
     content:
-      'Predict your JEE Mains and Advanced Rank based on your percentile in JEE Mains / marks in JEE Advanced',
+      'Predict your JEE Mains and Advanced Rank based on your percentile in JEE Mains',
   },
   {
     key: 3,
@@ -41,17 +42,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.container}>
-        {cardData.map((e) => (
-          <HomeCard
-            key={e.key}
-            link={e.link}
-            imageSrc={e.imageSrc}
-            heading={e.heading}
-            content={e.content}
-          />
-        ))}
-        <SocialMedia />
+      <main className={styles.main}>
+        <div className={styles.container}>
+          {cardData.map((e) => (
+            <HomeCard
+              key={e.key}
+              link={e.link}
+              imageSrc={e.imageSrc}
+              heading={e.heading}
+              content={e.content}
+            />
+          ))}
+        </div>
+        <Footer>
+          <SocialMedia />
+        </Footer>
       </main>
     </>
   );

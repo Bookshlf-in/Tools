@@ -1,56 +1,75 @@
 .container {
+  max-width: 300px;
+  height: 400px;
   width: 80%;
+  border-radius: 12px;
 }
 
 .innerContainer {
   margin-top: 20px;
-  padding: 20px 40px;
-  border-radius: 5px;
+  border-radius: 12px;
   background-color: rgb(49, 49, 49);
   box-shadow: 2px 2px 10px #252525;
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 20px;
+  height: 100%;
 }
 
 .container:hover {
   transform: scale(1.005);
 }
 
-.leftContainer {
-  flex: 0.25;
-}
-
-.imageContainer {
-  width: 150px;
-  height: 150px;
-  background-color: #ffffff1a;
-  border-radius: 75px;
+.topContainer {
+  flex: 1;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px 12px 0px 0px;
+  position: relative;
 }
 
 .mainImage {
   object-fit: contain;
 }
 
-.rightContainer {
-  flex: 0.75;
+.bottomContainer {
+  flex: 0.5;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .cardHeading {
-  color: #ededed;
+  color: #bebebe;
+  min-width: 200px;
+  font-weight: bold;
   text-align: center;
+  position: absolute;
+  font-size: 16px;
+  bottom: -1px;
+  border: none;
+  border-radius: 12px 12px 0 0;
+  background-color: rgb(49, 49, 49);
+  padding: 15px 10px;
 }
 
 .cardContent {
   color: #bebebe;
   margin-top: 20px;
-  font-size: 18px;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -66,23 +85,22 @@
 
 @media screen and (max-width: 800px) {
   .container {
-    width: 95%;
+    width: 85%;
   }
+
   .innerContainer {
-    padding: 10px 15px;
     gap: 10px;
   }
-  .imageContainer {
-    width: 120px;
-    height: 120px;
-  }
+
   .mainImage {
     width: 70px;
     height: 70px;
   }
+
   .cardHeading {
     font-size: 20px;
   }
+
   .cardContent {
     font-size: 16px;
     margin-top: 10px;

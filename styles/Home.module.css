@@ -1,5 +1,21 @@
-.container {
+.main {
+  min-height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding-bottom: 140px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
 }

@@ -2,7 +2,7 @@ import styles from '@/styles/HomeCard.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const HomeCard = ({ link, imageSrc, heading, content }) => {
+const HomeCard = ({ link, name, imageSrc, heading, content }) => {
   return (
     <div className={styles.container}>
       <Link href={link}>
@@ -14,7 +14,7 @@ const HomeCard = ({ link, imageSrc, heading, content }) => {
                 className={styles.mainImage}
                 width={90}
                 height={90}
-                alt="College"
+                alt={name}
               />
             </div>
           </div>

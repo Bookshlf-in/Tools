@@ -7,6 +7,7 @@ const cardData = [
   {
     key: 1,
     link: '/college-predictor',
+    name: 'College Predictor',
     imageSrc: '/images/college.png',
     heading: 'JEE College Predictor',
     content:
@@ -15,6 +16,7 @@ const cardData = [
   {
     key: 2,
     link: '/rank-predictor',
+    name: 'Rank Predictor',
     imageSrc: '/images/leaderboard.png',
     heading: 'JEE Rank Predictor',
     content:
@@ -23,6 +25,7 @@ const cardData = [
   {
     key: 3,
     link: 'https://bookshlf.in',
+    name: 'Bookshlf',
     imageSrc: '/images/books.png',
     heading: 'Bookshlf',
     content: 'Buy and Sell used books on bookslf from comfort of your home.',
@@ -46,6 +49,7 @@ export default function Home() {
           <HomeCard
             key={e.key}
             link={e.link}
+            name={e.name}
             imageSrc={e.imageSrc}
             heading={e.heading}
             content={e.content}

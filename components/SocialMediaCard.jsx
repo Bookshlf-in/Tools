@@ -10,24 +10,30 @@ const data = [
   },
   {
     id: 2,
+    name: 'topmate',
+    imgSrc: '/images/topmate.png',
+    link: 'https://topmate.io/bookshlf_by_aman/118443',
+  },
+  {
+    id: 3,
     name: 'youtube',
     imgSrc: '/images/youtube.png',
     link: 'https://www.youtube.com/channel/UCvZJWq7cQ4-cGJFsCWIppGQ',
   },
   {
-    id: 3,
+    id: 4,
     name: 'linkedin',
     imgSrc: '/images/linkedin.png',
     link: 'https://www.linkedin.com/company/bookshlf-in/',
   },
   {
-    id: 4,
+    id: 5,
     name: 'instagram',
     imgSrc: '/images/instagram.png',
     link: 'https://www.instagram.com/_bookshlf/',
   },
   {
-    id: 5,
+    id: 6,
     name: 'twitter',
     imgSrc: '/images/twitter.png',
     link: 'https://twitter.com/BookshlfA',

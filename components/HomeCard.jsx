@@ -7,19 +7,19 @@ const HomeCard = ({ link, name, imageSrc, heading, content }) => {
     <div className={styles.container}>
       <Link href={link}>
         <div className={styles.innerContainer}>
-          <div className={styles.leftContainer}>
+          <div className={styles.topContainer}>
             <div className={styles.imageContainer}>
               <Image
                 src={imageSrc}
                 className={styles.mainImage}
-                width={90}
-                height={90}
+                height={120}
+                width={120}
                 alt={name}
               />
+              <h2 className={styles.cardHeading}>{heading}</h2>
             </div>
           </div>
-          <div className={styles.rightContainer}>
-            <h2 className={styles.cardHeading}>{heading}</h2>
+          <div className={styles.bottomContainer}>
             <p className={styles.cardContent}>{content}</p>
             <Image
               src={'/images/link.png'}

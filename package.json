@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "start": "next build && serve out",
-    "build": "next build && touch ./out/.nojekyll && echo 'tools.bookshlf.in' > ./out/CNAME",
+    "build": "next build",
+    "build-github": "next build && touch ./out/.nojekyll && echo 'tools.bookshlf.in' > ./out/CNAME",
     "deploy": "gh-pages -d out -t true"
   },
   "dependencies": {

@@ -7,11 +7,11 @@ const nextConfig = {
     version,
   },
   reactStrictMode: true,
-  images: {
-    unoptimized: true,
-  },
-  trailingSlash: true,
-  output: 'export',
+  // images: {
+  //   unoptimized: true,
+  // },
+  // trailingSlash: true,
+  // output: 'export',
 };
 
 module.exports = nextConfig;

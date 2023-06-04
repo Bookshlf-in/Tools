@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import getConfig from 'next/config';
 import Head from 'next/head';
+import axios from 'axios';
 const { publicRuntimeConfig } = getConfig();
 import styles from '@/styles/college-predictor.module.css';
 import Dropdown from '@/components/Dropdown';
@@ -75,22 +76,33 @@ const CollegePredictor = () => {
     postData();
   };
 
-  const postData = () => {
-    const ip = sessionStorage.getItem('ip');
-    const sessionId = sessionStorage.getItem('sessionId');
-    const version = publicRuntimeConfig?.version;
-    const input = {
-      year: formData.year ?? '',
-      percentile: formData.percentile ?? '',
-      rank: formData.rank ?? '',
-      academicProgram: formData.academicProgram
-        ? academicProgramMap[formData.academicProgram]
-        : '',
-      quota: formData.quota ? quotaMap[formData.quota] : '',
-      seatType: formData.seatType ? seatTypeMap[formData.seatType] : '',
-      gender: formData.gender ? genderMap[formData.gender] : '',
-    };
-    console.log('POST data', { ...input, ip, sessionId, version });
+  const postData = async () => {
+    try {
+      const userId = localStorage.getItem('userId');
+      const sessionId = sessionStorage.getItem('sessionId');
+      const version = publicRuntimeConfig?.version;
+      const input = {
+        year: formData.year ?? '',
+        percentile: formData.percentile ?? '',
+        rank: formData.rank ?? '',
+        academicProgram: formData.academicProgram
+          ? academicProgramMap[formData.academicProgram]
+          : '',
+        quota: formData.quota ? quotaMap[formData.quota] : '',
+        seatType: formData.seatType ? seatTypeMap[formData.seatType] : '',
+        gender: formData.gender ? genderMap[formData.gender] : '',
+      };
+      const data = { ...input, userId, sessionId, version };
+      await axios('/api/college-predictor/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: JSON.stringify(data),
+      });
+    } catch (error) {
+      console.log('Some Error Occurred');
+    }
   };
 
   const renderResultView = () => {

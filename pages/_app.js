@@ -19,15 +19,8 @@ export default function App({ Component, pageProps }) {
   }, [router.events]);
 
   useEffect(() => {
-    if (!sessionStorage.getItem('ip')) {
-      fetch('https://api.ipify.org/?format=json')
-        .then((res) => res.json())
-        .then((data) => {
-          sessionStorage.setItem('ip', data?.ip);
-        })
-        .catch((error) => {
-          console.log('Error fetching info', error);
-        });
+    if (!localStorage.getItem('userId')) {
+      localStorage.setItem('userId', nanoid());
     }
     if (!sessionStorage.getItem('sessionId')) {
       sessionStorage.setItem('sessionId', nanoid());
